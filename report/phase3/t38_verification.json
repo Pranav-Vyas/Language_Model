@@ -1,0 +1,125 @@
+{
+  "what": "T3.8 verification: re-evaluate every finetuned checkpoint locally and compare against the accuracies the Kaggle runs logged.",
+  "why": "Proves the downloaded checkpoints are intact, that moving the metric code into eval/reasoning_metrics.py preserved behaviour, and that the committed sft_baseline/results.json is accurate.",
+  "method": {
+    "rows_per_split": 300,
+    "kaggle": "GPU, fp16 autocast",
+    "local": "CPU, fp32",
+    "compared": "integer hit counts (Kaggle logged 3-decimal strings, so float comparison is the wrong test)"
+  },
+  "result": {
+    "identical": 18,
+    "total": 18,
+    "max_difference_examples": 0
+  },
+  "rows": [
+    {
+      "checkpoint": "hindi_lr3e-05_ans_mask_s1337_0",
+      "split": "val",
+      "kaggle_hits": 210,
+      "local_hits": 210
+    },
+    {
+      "checkpoint": "hindi_lr3e-05_ans_mask_s1337_0",
+      "split": "test",
+      "kaggle_hits": 214,
+      "local_hits": 214
+    },
+    {
+      "checkpoint": "hindi_lr3e-05_ans_mask_s1337_0",
+      "split": "ood",
+      "kaggle_hits": 92,
+      "local_hits": 92
+    },
+    {
+      "checkpoint": "hindi_lr3e-05_ans_mask_s42_1",
+      "split": "val",
+      "kaggle_hits": 195,
+      "local_hits": 195
+    },
+    {
+      "checkpoint": "hindi_lr3e-05_ans_mask_s42_1",
+      "split": "test",
+      "kaggle_hits": 200,
+      "local_hits": 200
+    },
+    {
+      "checkpoint": "hindi_lr3e-05_ans_mask_s42_1",
+      "split": "ood",
+      "kaggle_hits": 89,
+      "local_hits": 89
+    },
+    {
+      "checkpoint": "hindi_lr3e-05_ans_mask_s7_2",
+      "split": "val",
+      "kaggle_hits": 191,
+      "local_hits": 191
+    },
+    {
+      "checkpoint": "hindi_lr3e-05_ans_mask_s7_2",
+      "split": "test",
+      "kaggle_hits": 194,
+      "local_hits": 194
+    },
+    {
+      "checkpoint": "hindi_lr3e-05_ans_mask_s7_2",
+      "split": "ood",
+      "kaggle_hits": 91,
+      "local_hits": 91
+    },
+    {
+      "checkpoint": "nepali_lr3e-06_ans_mask_s1337_3",
+      "split": "val",
+      "kaggle_hits": 65,
+      "local_hits": 65
+    },
+    {
+      "checkpoint": "nepali_lr3e-06_ans_mask_s1337_3",
+      "split": "test",
+      "kaggle_hits": 57,
+      "local_hits": 57
+    },
+    {
+      "checkpoint": "nepali_lr3e-06_ans_mask_s1337_3",
+      "split": "ood",
+      "kaggle_hits": 8,
+      "local_hits": 8
+    },
+    {
+      "checkpoint": "nepali_lr3e-06_ans_mask_s42_4",
+      "split": "val",
+      "kaggle_hits": 69,
+      "local_hits": 69
+    },
+    {
+      "checkpoint": "nepali_lr3e-06_ans_mask_s42_4",
+      "split": "test",
+      "kaggle_hits": 59,
+      "local_hits": 59
+    },
+    {
+      "checkpoint": "nepali_lr3e-06_ans_mask_s42_4",
+      "split": "ood",
+      "kaggle_hits": 10,
+      "local_hits": 10
+    },
+    {
+      "checkpoint": "nepali_lr3e-06_ans_mask_s7_5",
+      "split": "val",
+      "kaggle_hits": 68,
+      "local_hits": 68
+    },
+    {
+      "checkpoint": "nepali_lr3e-06_ans_mask_s7_5",
+      "split": "test",
+      "kaggle_hits": 53,
+      "local_hits": 53
+    },
+    {
+      "checkpoint": "nepali_lr3e-06_ans_mask_s7_5",
+      "split": "ood",
+      "kaggle_hits": 8,
+      "local_hits": 8
+    }
+  ]
+}

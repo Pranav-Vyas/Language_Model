@@ -1,0 +1,64 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "name": "no_cross_tree_imports",
+      "passed": true,
+      "detail": "no module references a sibling language tree",
+      "data": {
+        "violations": []
+      }
+    },
+    {
+      "name": "config_isolation",
+      "passed": true,
+      "detail": "each config only references its own tree; lang_codes distinct",
+      "data": {
+        "lang_codes": {
+          "hindi": "hi",
+          "nepali": "ne"
+        },
+        "problems": []
+      }
+    },
+    {
+      "name": "no_shared_documents",
+      "passed": true,
+      "detail": "0 exact document(s) shared across corpora",
+      "data": {
+        "docs": {
+          "hindi": 49016,
+          "nepali": 68919
+        },
+        "compared": 68919,
+        "overlaps": 0
+      }
+    },
+    {
+      "name": "no_cross_near_duplicates",
+      "passed": true,
+      "detail": "0 near-duplicate pair(s) across corpora (threshold 0.549)",
+      "data": {
+        "indexed": 49016,
+        "compared": 68919,
+        "near_duplicates": 0,
+        "threshold": 0.5492802716530588
+      }
+    },
+    {
+      "name": "separate_tokenizers",
+      "passed": true,
+      "detail": "tokenizer models and vocabularies differ per language",
+      "data": {
+        "model_sha": {
+          "hindi": "56b78acf448fb633",
+          "nepali": "f75804fd06baae89"
+        },
+        "vocab_sha": {
+          "hindi": "d7289772b78d9461",
+          "nepali": "36533bc4f5e0a1e4"
+        }
+      }
+    }
+  ]
+}

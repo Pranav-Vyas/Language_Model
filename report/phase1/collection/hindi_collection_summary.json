@@ -1,0 +1,66 @@
+{
+  "per_source": {
+    "news_livehindustan": {
+      "docs": 56734,
+      "chars": 33033154,
+      "tokens_est": 8759531,
+      "flagged_short": 2539,
+      "flagged_residual_markup": 0,
+      "bucket": "manual",
+      "first_fetch": "2026-08-17T08:02:22.369684+00:00",
+      "last_fetch": "2026-08-17T08:39:18.252742+00:00"
+    },
+    "sangraha_verified_hin": {
+      "docs": 524288,
+      "chars": 1149715983,
+      "tokens_est": 313601111,
+      "flagged_short": 0,
+      "flagged_residual_markup": 0,
+      "bucket": "downloaded",
+      "first_fetch": "2026-08-16T04:54:32.583872+00:00",
+      "last_fetch": "2026-08-16T04:56:09.129951+00:00"
+    },
+    "wikipedia_hi": {
+      "docs": 174691,
+      "chars": 274288723,
+      "tokens_est": 75058421,
+      "flagged_short": 46658,
+      "flagged_residual_markup": 92,
+      "bucket": "manual",
+      "first_fetch": "2026-08-15T19:29:49.654135+00:00",
+      "last_fetch": "2026-08-15T22:59:21.944732+00:00"
+    },
+    "wikisource_hi": {
+      "docs": 4634,
+      "chars": 51343955,
+      "tokens_est": 15384443,
+      "flagged_short": 15,
+      "flagged_residual_markup": 1,
+      "bucket": "manual",
+      "first_fetch": "2026-08-16T05:32:37.733355+00:00",
+      "last_fetch": "2026-08-16T06:57:08.045355+00:00"
+    }
+  },
+  "per_bucket": {
+    "manual": {
+      "docs": 236059,
+      "tokens_est": 99202395
+    },
+    "downloaded": {
+      "docs": 524288,
+      "tokens_est": 313601111
+    }
+  },
+  "total_docs": 760347,
+  "total_tokens_est": 412803506,
+  "manual_fraction": 0.2403138383228751,
+  "malformed_manifest_lines": 0,
+  "language": "hindi",
+  "token_basis": {
+    "method": "words x fertility",
+    "fertility": 1.5
+  },
+  "generated_utc": "2026-08-17T08:39:21.498916+00:00",
+  "source_manifest": "hindi/corpus/manifest.jsonl",
+  "_note": "Collection-time log written 2026-08-17 while collection was still running; lists only sources fetched by then, with pre-tokenizer token estimates. Not the final accounting. Final: 1202072 docs, 582711232 tokens, 19.29% manual. See hindi/corpus/stats/corpus_stats.json."
+}

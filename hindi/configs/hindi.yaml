@@ -1,0 +1,52 @@
+# Hindi (Model H) — higher-resource. Independent tree; paths never leave hindi/.
+lang_code: hi
+lang_name: hindi
+script: Devanagari
+seed: 1337
+
+paths:
+  root: hindi
+  corpus_dir: hindi/corpus
+  raw_dir: hindi/corpus/raw
+  clean_dir: hindi/corpus/clean
+  dedup_dir: hindi/corpus/dedup
+  splits_dir: hindi/corpus/splits
+  tokenizer_dir: hindi/tokenizer
+  stats_dir: hindi/corpus/stats
+  manifest: hindi/corpus/manifest.jsonl
+
+data:
+  target_tokens: 700_000_000     # ~700M raw, to land ~500M after cleaning; real
+                                 # achieved total reported in T1.10
+  training_target_tokens: 500_000_000   # spec: ~500M TRAINING tokens (denominator for the manual share)
+  manual_fraction_min: 0.20      # spec floor
+  sources:
+    # --- manual (self-scraped; counts toward the >=20% quota) ---
+    - name: wiki
+      bucket: manual
+      wiki_lang: hi
+      notes: "hi.wikipedia.org API scrape, 174,691 articles, 75.06M tokens measured (T1.4)"
+    - name: wikisource
+      bucket: manual
+      notes: "hi.wikisource.org, CC BY-SA 4.0, action=parse HTML extraction (T1.4b). 4,634 docs, 15.38M tokens"
+    - name: news
+      bucket: manual
+      notes: "livehindustan.com, sitemap-driven (363 sub-sitemaps, ~3.6M articles reachable; 2.06M URLs discovered). Robots-allowed; same collection standard as the Nepali tree. Target ~274,500 articles = ~49.7M tokens, the amount that holds manual at 20.0% against a 5-shard downloaded tier"
+    # --- downloaded (public HF corpus; right-sized, not full 37.3GB) ---
+    - name: sangraha
+      bucket: downloaded
+      hf_dataset: ai4bharat/sangraha
+      hf_config: verified
+      hf_subdir: hin
+      notes: "verified/hin: 5 of 100 shards pulled in full (shards 0-4), 560.51M tokens measured at fertility 1.5. Right-sized to the ~700M corpus target: 5 shards is the most that keeps manual >=20% once the news tier lands (T1.4c)."
+
+tokenizer:
+  model_type: bpe                # SentencePiece BPE (locked)
+  vocab_sizes: [8000, 16000, 32000, 48000]   # sweep; winner by fertility/UNK
+  character_coverage: 0.9995     # Devanagari
+  byte_fallback: true            # decode-safety for unseen bytes
+
+split:
+  train: 0.98
+  val: 0.01
+  test: 0.01

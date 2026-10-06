@@ -1,0 +1,41 @@
+# Phase-2 training configuration — hindi
+# Sized for ONE Tesla T4 (16GB). Kaggle gives T4 x2; the two languages run as
+# two independent processes, one per card (see train/loop.py header).
+# Logged into every checkpoint so a run reproduces.
+
+train_shard: hindi/data/tokenized/train.bin
+val_shard: hindi/data/tokenized/val.bin
+ctx: 512                  # must equal model.yaml max_seq_len
+
+# VRAM knob. Deliberately conservative — our attention is unfused (spec forbids
+# a flash kernel), so the (B,h,T,T) score matrix is materialised and kept for
+# backward. T2.9's smoke run reports peak VRAM; raise this on that evidence only.
+micro_batch_size: 8
+grad_accum_steps: 16      # 8 x 16 = 128 seqs = 65,536 tokens/optimizer step
+
+peak_lr: 0.0006
+min_lr_ratio: 0.1
+weight_decay: 0.1         # 2D matmul weights only; not LayerNorm gains/biases
+beta1: 0.9
+beta2: 0.95               # shorter memory than 0.999 — suits small-model noise
+eps: 1.0e-8
+grad_clip: 1.0
+
+# One epoch of Hindi's train split: 572,264,559 tokens / 65,536 per step.
+# Set per language so each model sees its own corpus exactly once and neither
+# repeats data the other does not.
+max_steps: 8732
+warmup_steps: 500         # insurance for AdamW's cold moment estimates,
+                          # NOT an architectural requirement — pre-norm does
+                          # not need warmup. See train/schedule.py.
+
+dtype: bfloat16           # fp32 exponent range, so no GradScaler needed
+
+eval_every: 500
+eval_batches: 40          # fixed windows — a moving val sample is not a measurement
+ckpt_every: 500
+log_every: 10
+keep_last_n: 3
+
+ckpt_dir: hindi/checkpoints
+seed: 1337

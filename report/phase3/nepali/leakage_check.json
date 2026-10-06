@@ -1,0 +1,106 @@
+{
+  "lang_code": "ne",
+  "n_gram": 8,
+  "checks": [
+    {
+      "name": "entity_holdout",
+      "passed": true,
+      "pairwise_shared_names": {
+        "train|val": 0,
+        "test|val": 0,
+        "ood|val": 0,
+        "ood|test": 15
+      },
+      "examples": {
+        "ood|test": [
+          "अनमोल",
+          "उपेन्द्र",
+          "ओली",
+          "गगन",
+          "गोपाल"
+        ]
+      },
+      "note": "test|ood share a pool by design; train|* must be empty"
+    },
+    {
+      "name": "relation_holdout",
+      "passed": true,
+      "held_out": [
+        "speed",
+        "wealth"
+      ],
+      "relations_per_split": {
+        "train": 7,
+        "val": 7,
+        "test": 9,
+        "ood": 9
+      },
+      "violations": {}
+    },
+    {
+      "name": "hop_holdout",
+      "passed": true,
+      "hops_per_split": {
+        "train": [
+          1,
+          2,
+          3
+        ],
+        "val": [
+          1,
+          2,
+          3
+        ],
+        "test": [
+          1,
+          2,
+          3
+        ],
+        "ood": [
+          4
+        ]
+      },
+      "max_trained_hops": 3,
+      "ood_hops": [
+        4
+      ]
+    },
+    {
+      "name": "exact_prompt_overlap",
+      "passed": true,
+      "counts": {
+        "train|val": 0,
+        "train|test": 0,
+        "train|ood": 0
+      }
+    },
+    {
+      "name": "ngram_8_vs_train",
+      "passed": true,
+      "note": "reported, not gated: templates are repetitive by design",
+      "results": {
+        "test": {
+          "probed": 1500,
+          "with_shared_ngram": 267,
+          "fraction": 0.178
+        },
+        "ood": {
+          "probed": 1500,
+          "with_shared_ngram": 774,
+          "fraction": 0.516
+        }
+      },
+      "train_ngrams": 443983
+    },
+    {
+      "name": "pretraining_contamination_8gram",
+      "passed": true,
+      "probed": 1500,
+      "corpus_docs_scanned": 4000,
+      "test_prompts_with_corpus_ngram": 0,
+      "fraction": 0.0,
+      "caveat": "n-gram decontamination is necessary but not sufficient (course L3): it cannot detect paraphrase."
+    }
+  ],
+  "all_passed": true
+}

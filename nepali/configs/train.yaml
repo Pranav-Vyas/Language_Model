@@ -1,0 +1,45 @@
+# Phase-2 training configuration — nepali
+# Sized for ONE Tesla T4 (16GB). Kaggle gives T4 x2; the two languages run as
+# two independent processes, one per card (see train/loop.py header).
+# Logged into every checkpoint so a run reproduces.
+
+train_shard: nepali/data/tokenized/train.bin
+val_shard: nepali/data/tokenized/val.bin
+ctx: 512                  # must equal model.yaml max_seq_len
+
+# VRAM knob. Deliberately conservative — our attention is unfused (spec forbids
+# a flash kernel), so the (B,h,T,T) score matrix is materialised and kept for
+# backward. T2.9's smoke run reports peak VRAM; raise this on that evidence only.
+micro_batch_size: 8
+grad_accum_steps: 16      # 8 x 16 = 128 seqs = 65,536 tokens/optimizer step
+
+peak_lr: 0.0006
+min_lr_ratio: 0.1
+weight_decay: 0.1         # 2D matmul weights only; not LayerNorm gains/biases
+beta1: 0.9
+beta2: 0.95               # shorter memory than 0.999 — suits small-model noise
+eps: 1.0e-8
+grad_clip: 1.0
+
+# One epoch of Nepali's train split: 887,852,764 tokens / 65,536 per step.
+max_steps: 13547
+
+# Matched-token milestone: at step 8,732 Nepali has consumed 572,264,559
+# tokens -- exactly Hindi's whole training set. Checkpointed and exempt from
+# pruning so Model L can be reported at BOTH its true data scale and Hindi's
+# token budget, isolating corpus size from everything else.
+extra_ckpt_steps: [8732]
+warmup_steps: 500         # insurance for AdamW's cold moment estimates,
+                          # NOT an architectural requirement — pre-norm does
+                          # not need warmup. See train/schedule.py.
+
+dtype: bfloat16           # fp32 exponent range, so no GradScaler needed
+
+eval_every: 500
+eval_batches: 40          # fixed windows — a moving val sample is not a measurement
+ckpt_every: 500
+log_every: 10
+keep_last_n: 3
+
+ckpt_dir: nepali/checkpoints
+seed: 1337

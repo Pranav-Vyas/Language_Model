@@ -1,0 +1,394 @@
+{
+  "arm": "lrprobe",
+  "source": "kaggle_lrprobe_out",
+  "languages": {
+    "nepali": {
+      "runs": [
+        {
+          "tag": "nepali_lr1e-05_ans_mask_s1337_3",
+          "lang": "nepali",
+          "lr": 1e-05,
+          "target": "answer_only",
+          "mask_prompt": true,
+          "seed": 1337,
+          "final": {
+            "val": {
+              "exact_match": 0.93,
+              "chance": 0.39,
+              "last_mention": 0.38,
+              "well_formed": 0.973
+            },
+            "test": {
+              "exact_match": 0.84,
+              "chance": 0.396,
+              "last_mention": 0.397,
+              "well_formed": 0.963
+            },
+            "ood": {
+              "exact_match": 0.12,
+              "chance": 0.2,
+              "last_mention": 0.137,
+              "well_formed": 0.897
+            },
+            "train": {
+              "exact_match": 1.0,
+              "chance": 0.402,
+              "last_mention": 0.357,
+              "well_formed": 1.0
+            }
+          }
+        },
+        {
+          "tag": "nepali_lr1e-05_ans_mask_s42_4",
+          "lang": "nepali",
+          "lr": 1e-05,
+          "target": "answer_only",
+          "mask_prompt": true,
+          "seed": 42,
+          "final": {
+            "val": {
+              "exact_match": 0.847,
+              "chance": 0.39,
+              "last_mention": 0.38,
+              "well_formed": 0.897
+            },
+            "test": {
+              "exact_match": 0.757,
+              "chance": 0.396,
+              "last_mention": 0.397,
+              "well_formed": 0.897
+            },
+            "ood": {
+              "exact_match": 0.193,
+              "chance": 0.2,
+              "last_mention": 0.137,
+              "well_formed": 0.837
+            },
+            "train": {
+              "exact_match": 1.0,
+              "chance": 0.402,
+              "last_mention": 0.357,
+              "well_formed": 1.0
+            }
+          }
+        },
+        {
+          "tag": "nepali_lr1e-05_ans_mask_s7_5",
+          "lang": "nepali",
+          "lr": 1e-05,
+          "target": "answer_only",
+          "mask_prompt": true,
+          "seed": 7,
+          "final": {
+            "val": {
+              "exact_match": 0.823,
+              "chance": 0.39,
+              "last_mention": 0.38,
+              "well_formed": 0.87
+            },
+            "test": {
+              "exact_match": 0.697,
+              "chance": 0.396,
+              "last_mention": 0.397,
+              "well_formed": 0.85
+            },
+            "ood": {
+              "exact_match": 0.143,
+              "chance": 0.2,
+              "last_mention": 0.137,
+              "well_formed": 0.747
+            },
+            "train": {
+              "exact_match": 0.997,
+              "chance": 0.402,
+              "last_mention": 0.357,
+              "well_formed": 1.0
+            }
+          }
+        },
+        {
+          "tag": "nepali_lr3e-05_ans_mask_s1337_6",
+          "lang": "nepali",
+          "lr": 3e-05,
+          "target": "answer_only",
+          "mask_prompt": true,
+          "seed": 1337,
+          "final": {
+            "val": {
+              "exact_match": 0.933,
+              "chance": 0.39,
+              "last_mention": 0.38,
+              "well_formed": 0.96
+            },
+            "test": {
+              "exact_match": 0.85,
+              "chance": 0.396,
+              "last_mention": 0.397,
+              "well_formed": 0.973
+            },
+            "ood": {
+              "exact_match": 0.073,
+              "chance": 0.2,
+              "last_mention": 0.137,
+              "well_formed": 0.93
+            },
+            "train": {
+              "exact_match": 1.0,
+              "chance": 0.402,
+              "last_mention": 0.357,
+              "well_formed": 1.0
+            }
+          }
+        },
+        {
+          "tag": "nepali_lr3e-05_ans_mask_s42_7",
+          "lang": "nepali",
+          "lr": 3e-05,
+          "target": "answer_only",
+          "mask_prompt": true,
+          "seed": 42,
+          "final": {
+            "val": {
+              "exact_match": 0.897,
+              "chance": 0.39,
+              "last_mention": 0.38,
+              "well_formed": 0.983
+            },
+            "test": {
+              "exact_match": 0.853,
+              "chance": 0.396,
+              "last_mention": 0.397,
+              "well_formed": 0.973
+            },
+            "ood": {
+              "exact_match": 0.143,
+              "chance": 0.2,
+              "last_mention": 0.137,
+              "well_formed": 0.94
+            },
+            "train": {
+              "exact_match": 1.0,
+              "chance": 0.402,
+              "last_mention": 0.357,
+              "well_formed": 1.0
+            }
+          }
+        },
+        {
+          "tag": "nepali_lr3e-05_ans_mask_s7_8",
+          "lang": "nepali",
+          "lr": 3e-05,
+          "target": "answer_only",
+          "mask_prompt": true,
+          "seed": 7,
+          "final": {
+            "val": {
+              "exact_match": 0.957,
+              "chance": 0.39,
+              "last_mention": 0.38,
+              "well_formed": 0.987
+            },
+            "test": {
+              "exact_match": 0.82,
+              "chance": 0.396,
+              "last_mention": 0.397,
+              "well_formed": 0.947
+            },
+            "ood": {
+              "exact_match": 0.16,
+              "chance": 0.2,
+              "last_mention": 0.137,
+              "well_formed": 0.92
+            },
+            "train": {
+              "exact_match": 1.0,
+              "chance": 0.402,
+              "last_mention": 0.357,
+              "well_formed": 1.0
+            }
+          }
+        },
+        {
+          "tag": "nepali_lr3e-06_ans_mask_s1337_0",
+          "lang": "nepali",
+          "lr": 3e-06,
+          "target": "answer_only",
+          "mask_prompt": true,
+          "seed": 1337,
+          "final": {
+            "val": {
+              "exact_match": 0.633,
+              "chance": 0.39,
+              "last_mention": 0.38,
+              "well_formed": 0.92
+            },
+            "test": {
+              "exact_match": 0.487,
+              "chance": 0.396,
+              "last_mention": 0.397,
+              "well_formed": 0.857
+            },
+            "ood": {
+              "exact_match": 0.023,
+              "chance": 0.2,
+              "last_mention": 0.137,
+              "well_formed": 0.587
+            },
+            "train": {
+              "exact_match": 0.77,
+              "chance": 0.402,
+              "last_mention": 0.357,
+              "well_formed": 1.0
+            }
+          }
+        },
+        {
+          "tag": "nepali_lr3e-06_ans_mask_s42_1",
+          "lang": "nepali",
+          "lr": 3e-06,
+          "target": "answer_only",
+          "mask_prompt": true,
+          "seed": 42,
+          "final": {
+            "val": {
+              "exact_match": 0.63,
+              "chance": 0.39,
+              "last_mention": 0.38,
+              "well_formed": 0.917
+            },
+            "test": {
+              "exact_match": 0.5,
+              "chance": 0.396,
+              "last_mention": 0.397,
+              "well_formed": 0.86
+            },
+            "ood": {
+              "exact_match": 0.023,
+              "chance": 0.2,
+              "last_mention": 0.137,
+              "well_formed": 0.593
+            },
+            "train": {
+              "exact_match": 0.783,
+              "chance": 0.402,
+              "last_mention": 0.357,
+              "well_formed": 1.0
+            }
+          }
+        },
+        {
+          "tag": "nepali_lr3e-06_ans_mask_s7_2",
+          "lang": "nepali",
+          "lr": 3e-06,
+          "target": "answer_only",
+          "mask_prompt": true,
+          "seed": 7,
+          "final": {
+            "val": {
+              "exact_match": 0.633,
+              "chance": 0.39,
+              "last_mention": 0.38,
+              "well_formed": 0.93
+            },
+            "test": {
+              "exact_match": 0.48,
+              "chance": 0.396,
+              "last_mention": 0.397,
+              "well_formed": 0.857
+            },
+            "ood": {
+              "exact_match": 0.02,
+              "chance": 0.2,
+              "last_mention": 0.137,
+              "well_formed": 0.603
+            },
+            "train": {
+              "exact_match": 0.77,
+              "chance": 0.402,
+              "last_mention": 0.357,
+              "well_formed": 1.0
+            }
+          }
+        }
+      ],
+      "aggregate": {
+        "train": {
+          "exact_match_mean": 0.9244444444444444,
+          "exact_match_half_range": 0.11499999999999999,
+          "exact_match_per_seed": [
+            1.0,
+            1.0,
+            0.997,
+            1.0,
+            1.0,
+            1.0,
+            0.77,
+            0.783,
+            0.77
+          ],
+          "chance": 0.402,
+          "last_mention": 0.357,
+          "well_formed_mean": 1.0,
+          "margin_over_chance": 0.5224444444444444
+        },
+        "val": {
+          "exact_match_mean": 0.8092222222222222,
+          "exact_match_half_range": 0.16349999999999998,
+          "exact_match_per_seed": [
+            0.93,
+            0.847,
+            0.823,
+            0.933,
+            0.897,
+            0.957,
+            0.633,
+            0.63,
+            0.633
+          ],
+          "chance": 0.39,
+          "last_mention": 0.38,
+          "well_formed_mean": 0.9374444444444444,
+          "margin_over_chance": 0.41922222222222216
+        },
+        "test": {
+          "exact_match_mean": 0.6982222222222222,
+          "exact_match_half_range": 0.1865,
+          "exact_match_per_seed": [
+            0.84,
+            0.757,
+            0.697,
+            0.85,
+            0.853,
+            0.82,
+            0.487,
+            0.5,
+            0.48
+          ],
+          "chance": 0.396,
+          "last_mention": 0.397,
+          "well_formed_mean": 0.9085555555555556,
+          "margin_over_chance": 0.30222222222222217
+        },
+        "ood": {
+          "exact_match_mean": 0.09977777777777777,
+          "exact_match_half_range": 0.08650000000000001,
+          "exact_match_per_seed": [
+            0.12,
+            0.193,
+            0.143,
+            0.073,
+            0.143,
+            0.16,
+            0.023,
+            0.023,
+            0.02
+          ],
+          "chance": 0.2,
+          "last_mention": 0.137,
+          "well_formed_mean": 0.7837777777777778,
+          "margin_over_chance": -0.10022222222222224
+        }
+      }
+    }
+  }
+}

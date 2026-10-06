@@ -1,0 +1,51 @@
+# Nepali (Model L) — lower-resource side of the pair, chosen 16 Aug 2026.
+# Independent tree; paths never leave nepali/.
+lang_code: ne                    # ISO 639-1; verified via sitematrix, ne.wikipedia.org is correct (no redirect issue)
+lang_name: nepali
+script: Devanagari
+seed: 1337
+
+paths:
+  root: nepali
+  corpus_dir: nepali/corpus
+  raw_dir: nepali/corpus/raw
+  clean_dir: nepali/corpus/clean
+  dedup_dir: nepali/corpus/dedup
+  splits_dir: nepali/corpus/splits
+  tokenizer_dir: nepali/tokenizer
+  stats_dir: nepali/corpus/stats
+  manifest: nepali/corpus/manifest.jsonl
+
+data:
+  target_tokens: 700_000_000     # raw pre-cleaning; lands ~500M post-cleaning with margin
+  training_target_tokens: 500_000_000   # spec: ~500M TRAINING tokens (denominator for the manual share)
+  manual_fraction_min: 0.20      # spec floor
+  chars_per_token: 4.988         # measured reference value; used to size downloads (not the
+                                  # project's usual word-count x fertility estimate -- see notes)
+  sources:
+    # --- manual (self-scraped; counts toward the >=20% quota) ---
+    - name: wiki
+      bucket: manual
+      wiki_lang: ne
+      notes: "ne.wikipedia.org, 30,037 articles / 9.09M words measured via siteinfo (16 Aug); smaller than the Hindi wiki, won't close the manual gap alone"
+    - name: news
+      bucket: manual
+      notes: "Nepali news sites, robots.txt + license-surveyed before inclusion (T1-nep news survey, 16 Aug): nepalpress.com, onlinekhabar.com, ratopati.com, setopati.net, ekantipur.com, nagariknews.nagariknetwork.com, ujyaaloonline.com, bbc.com/nepali"
+    # --- downloaded (public HF corpus; bulk volume) ---
+    - name: sangraha
+      bucket: downloaded
+      hf_dataset: ai4bharat/sangraha
+      hf_config: verified
+      hf_subdir: nep
+      notes: "verified/nep: 25 shards, 16.86GB total (one 8.6GB outlier shard + 24 uniform ~343MB shards). Shard 1 measured: 174,763 docs, 339.8M chars, ~68.1M tokens @cpt=4.988. Pulling ~10 uniform shards (~700M tokens), skipping the giant shard 0 to avoid disk exhaustion."
+
+tokenizer:
+  model_type: bpe                # SentencePiece BPE (locked)
+  vocab_sizes: [8000, 16000, 32000, 48000]   # sweep; winner by fertility/UNK
+  character_coverage: 0.9995     # Devanagari
+  byte_fallback: true            # decode-safety for unseen bytes
+
+split:
+  train: 0.98
+  val: 0.01
+  test: 0.01

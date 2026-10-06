@@ -1,0 +1,52 @@
+{
+  "per_source": {
+    "news_nepalpress": {
+      "docs": 46707,
+      "chars": 72618944,
+      "tokens_est": 14558757,
+      "flagged_short": 660,
+      "flagged_residual_markup": 0,
+      "bucket": "manual",
+      "first_fetch": "2026-08-16T10:13:37.798944+00:00",
+      "last_fetch": "2026-08-17T08:39:15.496804+00:00"
+    },
+    "news_onlinekhabar": {
+      "docs": 58924,
+      "chars": 132923342,
+      "tokens_est": 26648487,
+      "flagged_short": 70,
+      "flagged_residual_markup": 0,
+      "bucket": "manual",
+      "first_fetch": "2026-08-17T03:45:20.444548+00:00",
+      "last_fetch": "2026-08-17T08:39:21.154841+00:00"
+    },
+    "wikipedia_ne": {
+      "docs": 30416,
+      "chars": 44244138,
+      "tokens_est": 8870055,
+      "flagged_short": 4629,
+      "flagged_residual_markup": 24,
+      "bucket": "manual",
+      "first_fetch": "2026-08-16T09:57:39.442016+00:00",
+      "last_fetch": "2026-08-17T04:33:08.714231+00:00"
+    }
+  },
+  "per_bucket": {
+    "manual": {
+      "docs": 136047,
+      "tokens_est": 50077299
+    }
+  },
+  "total_docs": 136047,
+  "total_tokens_est": 50077299,
+  "manual_fraction": 1.0,
+  "malformed_manifest_lines": 0,
+  "language": "nepali",
+  "token_basis": {
+    "method": "chars / chars_per_token",
+    "chars_per_token": 4.988
+  },
+  "generated_utc": "2026-08-17T08:39:22.215005+00:00",
+  "source_manifest": "nepali/corpus/manifest.jsonl",
+  "_note": "Collection-time log written 2026-08-17 while collection was still running; lists only sources fetched by then, with pre-tokenizer token estimates. Not the final accounting. Final: 2180424 docs, 903937802 tokens, 22.40% manual. See nepali/corpus/stats/corpus_stats.json."
+}

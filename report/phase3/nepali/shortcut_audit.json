@@ -1,0 +1,64 @@
+{
+  "flag_margin": 0.3,
+  "flagged": [],
+  "by_split": {
+    "test": {
+      "P1": {
+        "n": 1213,
+        "chance": 0.5,
+        "majority_answer": 0.07666941467436109,
+        "first_mentioned": 0.5094806265457543,
+        "last_mentioned": 0.4905193734542457,
+        "most_repeated": 0.5094806265457543,
+        "least_repeated": 0.4905193734542457,
+        "first_candidate": 0.49381698268755153,
+        "last_candidate": 0.5061830173124485,
+        "alphabetically_first": 0.52679307502061,
+        "best_trivial_rule": "alphabetically_first",
+        "informed_baseline": 0.52679307502061
+      },
+      "P2": {
+        "n": 1658,
+        "chance": 0.5,
+        "majority_answer": 0.0856453558504222,
+        "first_mentioned": 0.23703256936067552,
+        "last_mentioned": 0.24728588661037396,
+        "most_repeated": 0.0,
+        "least_repeated": 0.5271411338962606,
+        "first_candidate": 0.4939686369119421,
+        "last_candidate": 0.5060313630880579,
+        "alphabetically_first": 0.5277442702050663,
+        "best_trivial_rule": "alphabetically_first",
+        "informed_baseline": 0.5277442702050663
+      },
+      "P3": {
+        "n": 2060,
+        "chance": 0.3333333333333373,
+        "majority_answer": 0.07572815533980583,
+        "first_mentioned": 0.2470873786407767,
+        "last_mentioned": 0.24320388349514563,
+        "most_repeated": 0.0,
+        "least_repeated": 0.503883495145631,
+        "first_candidate": 0.3359223300970874,
+        "last_candidate": 0.3300970873786408,
+        "alphabetically_first": 0.31893203883495147,
+        "best_trivial_rule": "least_repeated",
+        "informed_baseline": 0.503883495145631
+      },
+      "P4": {
+        "n": 1069,
+        "chance": 0.25,
+        "majority_answer": 0.0823199251637044,
+        "first_mentioned": 0.3423760523854069,
+        "last_mentioned": 0.33395696913002804,
+        "most_repeated": 0.49859681945743684,
+        "least_repeated": 0.0,
+        "first_candidate": 0.2656688493919551,
+        "last_candidate": 0.245088868101029,
+        "alphabetically_first": 0.2245088868101029,
+        "best_trivial_rule": "most_repeated",
+        "informed_baseline": 0.49859681945743684
+      }
+    }
+  }
+}

@@ -1,0 +1,30 @@
+# Phase-2 model configuration — Model L (nepali)
+# LOCKED 2026-08-29. Logged beside every checkpoint so a run reproduces.
+#
+# 24,070,656 trainable parameters (96.3% of the ~25M target).
+# Analytic arithmetic and the built module agree exactly — see
+# `python nepali/model/param_count.py`.
+
+lang_code: ne
+vocab_size: 16000        # from the Phase-1 tokenizer; never shared across languages
+
+# Depth over width. At this budget 384x10 spends 25.5% on embeddings, while
+# 512x5 spends 33.8% for the same total — the narrower/deeper shape buys ~2.5M
+# more parameters of actual computation, and gives a longer early-vs-late
+# gradient for the attention analysis the spec requires.
+d_model: 384
+n_layers: 10
+n_heads: 6               # d_k = 384/6 = 64, the conventional per-head width
+d_ff: 1536               # 4 x d_model; inner dim must exceed d_model
+
+# Learned absolute positions => this is a HARD context bound, not a soft one.
+# Position 512 has no row in the table.
+max_seq_len: 512
+
+emb_dropout: 0.1
+attn_dropout: 0.1        # on attention probabilities
+resid_dropout: 0.1       # on sub-layer outputs entering the residual stream
+
+# Ties the LM head to the token embedding: saves vocab x d_model = 6,144,000
+# parameters (a quarter of the budget), redirected into depth.
+tie_weights: true

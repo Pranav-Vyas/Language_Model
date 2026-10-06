@@ -1,0 +1,40 @@
+{
+  "lang_code": "ne",
+  "checkpoint": {
+    "step": 3525,
+    "val_loss": null,
+    "lang_code": "ne",
+    "path": "kaggle_lrprobe_out/sft/nepali_lr3e-05_ans_mask_s1337_6/step_3525.pt"
+  },
+  "note": "PPL is per-token and NOT comparable across languages; BPB is the cross-language comparator.",
+  "results": [
+    {
+      "split": "val",
+      "lang_code": "ne",
+      "checkpoint": "step_3525.pt",
+      "tokens_scored": 9239552,
+      "windows": 18046,
+      "total_nats": 38018392.2890625,
+      "mean_nats_per_token": 4.114744122773756,
+      "perplexity": 61.236543221081924,
+      "bytes_utf8": 113921219,
+      "bits_per_byte": 0.48146382648873937,
+      "tokens_not_scored": 353,
+      "ctx": 512
+    },
+    {
+      "split": "test",
+      "lang_code": "ne",
+      "checkpoint": "step_3525.pt",
+      "tokens_scored": 9025536,
+      "windows": 17628,
+      "total_nats": 37026955.271484375,
+      "mean_nats_per_token": 4.10246607752541,
+      "perplexity": 60.489275056288534,
+      "bytes_utf8": 111871290,
+      "bits_per_byte": 0.4775005700692999,
+      "tokens_not_scored": 21,
+      "ctx": 512
+    }
+  ]
+}

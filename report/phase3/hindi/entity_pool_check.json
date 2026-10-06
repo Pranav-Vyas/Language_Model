@@ -1,0 +1,992 @@
+{
+  "lang_code": "hi",
+  "gender": "m",
+  "docs_scanned": 12000,
+  "counts": {
+    "train": 90,
+    "val": 25,
+    "test": 25
+  },
+  "names": [
+    {
+      "name": "राम",
+      "split": "train",
+      "tokens": 1,
+      "unk": 0,
+      "corpus_freq": 760
+    },
+    {
+      "name": "श्याम",
+      "split": "train",
+      "tokens": 1,
+      "unk": 0,
+      "corpus_freq": 63
+    },
+    {
+      "name": "मोहन",
+      "split": "train",
+      "tokens": 1,
+      "unk": 0,
+      "corpus_freq": 208
+    },
+    {
+      "name": "सोहन",
+      "split": "train",
+      "tokens": 2,
+      "unk": 0,
+      "corpus_freq": 10
+    },
+    {
+      "name": "अमित",
+      "split": "train",
+      "tokens": 1,
+      "unk": 0,
+      "corpus_freq": 141
+    },
+    {
+      "name": "विकास",
+      "split": "train",
+      "tokens": 1,
+      "unk": 0,
+      "corpus_freq": 3247
+    },
+    {
+      "name": "राजेश",
+      "split": "train",
+      "tokens": 1,
+      "unk": 0,
+      "corpus_freq": 125
+    },
+    {
+      "name": "सुरेश",
+      "split": "train",
+      "tokens": 1,
+      "unk": 0,
+      "corpus_freq": 56
+    },
+    {
+      "name": "दिनेश",
+      "split": "train",
+      "tokens": 1,
+      "unk": 0,
+      "corpus_freq": 39
+    },
+    {
+      "name": "महेश",
+      "split": "train",
+      "tokens": 1,
+      "unk": 0,
+      "corpus_freq": 81
+    },
+    {
+      "name": "प्रकाश",
+      "split": "train",
+      "tokens": 1,
+      "unk": 0,
+      "corpus_freq": 989
+    },
+    {
+      "name": "अनिल",
+      "split": "train",
+      "tokens": 1,
+      "unk": 0,
+      "corpus_freq": 173
+    },
+    {
+      "name": "सुनील",
+      "split": "train",
+      "tokens": 1,
+      "unk": 0,
+      "corpus_freq": 87
+    },
+    {
+      "name": "विजय",
+      "split": "train",
+      "tokens": 1,
+      "unk": 0,
+      "corpus_freq": 753
+    },
+    {
+      "name": "अजय",
+      "split": "train",
+      "tokens": 1,
+      "unk": 0,
+      "corpus_freq": 197
+    },
+    {
+      "name": "संजय",
+      "split": "train",
+      "tokens": 1,
+      "unk": 0,
+      "corpus_freq": 125
+    },
+    {
+      "name": "मनोज",
+      "split": "train",
+      "tokens": 1,
+      "unk": 0,
+      "corpus_freq": 75
+    },
+    {
+      "name": "अशोक",
+      "split": "train",
+      "tokens": 1,
+      "unk": 0,
+      "corpus_freq": 624
+    },
+    {
+      "name": "राकेश",
+      "split": "train",
+      "tokens": 1,
+      "unk": 0,
+      "corpus_freq": 53
+    },
+    {
+      "name": "मुकेश",
+      "split": "train",
+      "tokens": 1,
+      "unk": 0,
+      "corpus_freq": 41
+    },
+    {
+      "name": "हरीश",
+      "split": "train",
+      "tokens": 1,
+      "unk": 0,
+      "corpus_freq": 40
+    },
+    {
+      "name": "गिरीश",
+      "split": "train",
+      "tokens": 2,
+      "unk": 0,
+      "corpus_freq": 27
+    },
+    {
+      "name": "नितिन",
+      "split": "train",
+      "tokens": 1,
+      "unk": 0,
+      "corpus_freq": 24
+    },
+    {
+      "name": "सचिन",
+      "split": "train",
+      "tokens": 1,
+      "unk": 0,
+      "corpus_freq": 71
+    },
+    {
+      "name": "अरुण",
+      "split": "train",
+      "tokens": 1,
+      "unk": 0,
+      "corpus_freq": 274
+    },
+    {
+      "name": "वरुण",
+      "split": "train",
+      "tokens": 1,
+      "unk": 0,
+      "corpus_freq": 97
+    },
+    {
+      "name": "गौरव",
+      "split": "train",
+      "tokens": 1,
+      "unk": 0,
+      "corpus_freq": 140
+    },
+    {
+      "name": "पंकज",
+      "split": "train",
+      "tokens": 1,
+      "unk": 0,
+      "corpus_freq": 38
+    },
+    {
+      "name": "नीरज",
+      "split": "train",
+      "tokens": 1,
+      "unk": 0,
+      "corpus_freq": 20
+    },
+    {
+      "name": "धीरज",
+      "split": "train",
+      "tokens": 1,
+      "unk": 0,
+      "corpus_freq": 17
+    },
+    {
+      "name": "कमल",
+      "split": "train",
+      "tokens": 1,
+      "unk": 0,
+      "corpus_freq": 148
+    },
+    {
+      "name": "विमल",
+      "split": "train",
+      "tokens": 1,
+      "unk": 0,
+      "corpus_freq": 7
+    },
+    {
+      "name": "अनुज",
+      "split": "train",
+      "tokens": 1,
+      "unk": 0,
+      "corpus_freq": 42
+    },
+    {
+      "name": "मनीष",
+      "split": "train",
+      "tokens": 1,
+      "unk": 0,
+      "corpus_freq": 29
+    },
+    {
+      "name": "आशीष",
+      "split": "train",
+      "tokens": 1,
+      "unk": 0,
+      "corpus_freq": 48
+    },
+    {
+      "name": "सतीश",
+      "split": "train",
+      "tokens": 1,
+      "unk": 0,
+      "corpus_freq": 49
+    },
+    {
+      "name": "नरेश",
+      "split": "train",
+      "tokens": 1,
+      "unk": 0,
+      "corpus_freq": 123
+    },
+    {
+      "name": "उमेश",
+      "split": "train",
+      "tokens": 1,
+      "unk": 0,
+      "corpus_freq": 37
+    },
+    {
+      "name": "जितेंद्र",
+      "split": "train",
+      "tokens": 1,
+      "unk": 0,
+      "corpus_freq": 5
+    },
+    {
+      "name": "नरेंद्र",
+      "split": "train",
+      "tokens": 1,
+      "unk": 0,
+      "corpus_freq": 119
+    },
+    {
+      "name": "देवेंद्र",
+      "split": "train",
+      "tokens": 1,
+      "unk": 0,
+      "corpus_freq": 18
+    },
+    {
+      "name": "योगेश",
+      "split": "train",
+      "tokens": 1,
+      "unk": 0,
+      "corpus_freq": 19
+    },
+    {
+      "name": "मुकुल",
+      "split": "train",
+      "tokens": 2,
+      "unk": 0,
+      "corpus_freq": 14
+    },
+    {
+      "name": "विनोद",
+      "split": "train",
+      "tokens": 1,
+      "unk": 0,
+      "corpus_freq": 61
+    },
+    {
+      "name": "प्रमोद",
+      "split": "train",
+      "tokens": 1,
+      "unk": 0,
+      "corpus_freq": 26
+    },
+    {
+      "name": "विनय",
+      "split": "train",
+      "tokens": 1,
+      "unk": 0,
+      "corpus_freq": 36
+    },
+    {
+      "name": "अभय",
+      "split": "train",
+      "tokens": 1,
+      "unk": 0,
+      "corpus_freq": 83
+    },
+    {
+      "name": "उदय",
+      "split": "train",
+      "tokens": 1,
+      "unk": 0,
+      "corpus_freq": 298
+    },
+    {
+      "name": "आनंद",
+      "split": "train",
+      "tokens": 1,
+      "unk": 0,
+      "corpus_freq": 434
+    },
+    {
+      "name": "गोविंद",
+      "split": "train",
+      "tokens": 1,
+      "unk": 0,
+      "corpus_freq": 40
+    },
+    {
+      "name": "मुरली",
+      "split": "train",
+      "tokens": 1,
+      "unk": 0,
+      "corpus_freq": 32
+    },
+    {
+      "name": "शंकर",
+      "split": "train",
+      "tokens": 1,
+      "unk": 0,
+      "corpus_freq": 267
+    },
+    {
+      "name": "भरत",
+      "split": "train",
+      "tokens": 1,
+      "unk": 0,
+      "corpus_freq": 95
+    },
+    {
+      "name": "लक्ष्मण",
+      "split": "train",
+      "tokens": 1,
+      "unk": 0,
+      "corpus_freq": 125
+    },
+    {
+      "name": "अर्जुन",
+      "split": "train",
+      "tokens": 1,
+      "unk": 0,
+      "corpus_freq": 480
+    },
+    {
+      "name": "करण",
+      "split": "train",
+      "tokens": 1,
+      "unk": 0,
+      "corpus_freq": 135
+    },
+    {
+      "name": "विवेक",
+      "split": "train",
+      "tokens": 1,
+      "unk": 0,
+      "corpus_freq": 125
+    },
+    {
+      "name": "विशाल",
+      "split": "train",
+      "tokens": 1,
+      "unk": 0,
+      "corpus_freq": 645
+    },
+    {
+      "name": "कुणाल",
+      "split": "train",
+      "tokens": 1,
+      "unk": 0,
+      "corpus_freq": 27
+    },
+    {
+      "name": "रोहित",
+      "split": "train",
+      "tokens": 1,
+      "unk": 0,
+      "corpus_freq": 84
+    },
+    {
+      "name": "मोहित",
+      "split": "train",
+      "tokens": 1,
+      "unk": 0,
+      "corpus_freq": 51
+    },
+    {
+      "name": "अंकित",
+      "split": "train",
+      "tokens": 1,
+      "unk": 0,
+      "corpus_freq": 222
+    },
+    {
+      "name": "सुमित",
+      "split": "train",
+      "tokens": 1,
+      "unk": 0,
+      "corpus_freq": 8
+    },
+    {
+      "name": "पुनीत",
+      "split": "train",
+      "tokens": 2,
+      "unk": 0,
+      "corpus_freq": 15
+    },
+    {
+      "name": "अजित",
+      "split": "train",
+      "tokens": 1,
+      "unk": 0,
+      "corpus_freq": 87
+    },
+    {
+      "name": "रजत",
+      "split": "train",
+      "tokens": 1,
+      "unk": 0,
+      "corpus_freq": 290
+    },
+    {
+      "name": "समीर",
+      "split": "train",
+      "tokens": 1,
+      "unk": 0,
+      "corpus_freq": 55
+    },
+    {
+      "name": "कबीर",
+      "split": "train",
+      "tokens": 1,
+      "unk": 0,
+      "corpus_freq": 137
+    },
+    {
+      "name": "आमिर",
+      "split": "train",
+      "tokens": 1,
+      "unk": 0,
+      "corpus_freq": 111
+    },
+    {
+      "name": "जावेद",
+      "split": "train",
+      "tokens": 1,
+      "unk": 0,
+      "corpus_freq": 54
+    },
+    {
+      "name": "इमरान",
+      "split": "train",
+      "tokens": 1,
+      "unk": 0,
+      "corpus_freq": 134
+    },
+    {
+      "name": "सलीम",
+      "split": "train",
+      "tokens": 1,
+      "unk": 0,
+      "corpus_freq": 70
+    },
+    {
+      "name": "फैसल",
+      "split": "train",
+      "tokens": 2,
+      "unk": 0,
+      "corpus_freq": 51
+    },
+    {
+      "name": "नदीम",
+      "split": "train",
+      "tokens": 2,
+      "unk": 0,
+      "corpus_freq": 20
+    },
+    {
+      "name": "आरिफ",
+      "split": "train",
+      "tokens": 2,
+      "unk": 0,
+      "corpus_freq": 26
+    },
+    {
+      "name": "शौकत",
+      "split": "train",
+      "tokens": 2,
+      "unk": 0,
+      "corpus_freq": 17
+    },
+    {
+      "name": "इकबाल",
+      "split": "train",
+      "tokens": 1,
+      "unk": 0,
+      "corpus_freq": 101
+    },
+    {
+      "name": "रफीक",
+      "split": "train",
+      "tokens": 3,
+      "unk": 0,
+      "corpus_freq": 2
+    },
+    {
+      "name": "यूसुफ",
+      "split": "train",
+      "tokens": 3,
+      "unk": 0,
+      "corpus_freq": 105
+    },
+    {
+      "name": "हामिद",
+      "split": "train",
+      "tokens": 3,
+      "unk": 0,
+      "corpus_freq": 92
+    },
+    {
+      "name": "तरुण",
+      "split": "train",
+      "tokens": 1,
+      "unk": 0,
+      "corpus_freq": 22
+    },
+    {
+      "name": "सारंग",
+      "split": "train",
+      "tokens": 2,
+      "unk": 0,
+      "corpus_freq": 8
+    },
+    {
+      "name": "पवन",
+      "split": "train",
+      "tokens": 1,
+      "unk": 0,
+      "corpus_freq": 63
+    },
+    {
+      "name": "चेतन",
+      "split": "train",
+      "tokens": 1,
+      "unk": 0,
+      "corpus_freq": 56
+    },
+    {
+      "name": "केतन",
+      "split": "train",
+      "tokens": 2,
+      "unk": 0,
+      "corpus_freq": 5
+    },
+    {
+      "name": "रमेश",
+      "split": "train",
+      "tokens": 1,
+      "unk": 0,
+      "corpus_freq": 52
+    },
+    {
+      "name": "दीपक",
+      "split": "train",
+      "tokens": 1,
+      "unk": 0,
+      "corpus_freq": 99
+    },
+    {
+      "name": "राहुल",
+      "split": "train",
+      "tokens": 1,
+      "unk": 0,
+      "corpus_freq": 238
+    },
+    {
+      "name": "रूपेश",
+      "split": "train",
+      "tokens": 2,
+      "unk": 0,
+      "corpus_freq": 7
+    },
+    {
+      "name": "लोकेश",
+      "split": "train",
+      "tokens": 2,
+      "unk": 0,
+      "corpus_freq": 7
+    },
+    {
+      "name": "अखिलेश",
+      "split": "val",
+      "tokens": 1,
+      "unk": 0,
+      "corpus_freq": 36
+    },
+    {
+      "name": "मृदुल",
+      "split": "val",
+      "tokens": 3,
+      "unk": 0,
+      "corpus_freq": 6
+    },
+    {
+      "name": "सुबोध",
+      "split": "val",
+      "tokens": 2,
+      "unk": 0,
+      "corpus_freq": 19
+    },
+    {
+      "name": "प्रबोध",
+      "split": "val",
+      "tokens": 2,
+      "unk": 0,
+      "corpus_freq": 5
+    },
+    {
+      "name": "निखिल",
+      "split": "val",
+      "tokens": 2,
+      "unk": 0,
+      "corpus_freq": 60
+    },
+    {
+      "name": "अनुराग",
+      "split": "val",
+      "tokens": 1,
+      "unk": 0,
+      "corpus_freq": 83
+    },
+    {
+      "name": "सुधीर",
+      "split": "val",
+      "tokens": 1,
+      "unk": 0,
+      "corpus_freq": 26
+    },
+    {
+      "name": "रणवीर",
+      "split": "val",
+      "tokens": 1,
+      "unk": 0,
+      "corpus_freq": 17
+    },
+    {
+      "name": "जगदीश",
+      "split": "val",
+      "tokens": 1,
+      "unk": 0,
+      "corpus_freq": 36
+    },
+    {
+      "name": "ओमप्रकाश",
+      "split": "val",
+      "tokens": 1,
+      "unk": 0,
+      "corpus_freq": 11
+    },
+    {
+      "name": "बलराम",
+      "split": "val",
+      "tokens": 1,
+      "unk": 0,
+      "corpus_freq": 39
+    },
+    {
+      "name": "शिवम",
+      "split": "val",
+      "tokens": 1,
+      "unk": 0,
+      "corpus_freq": 19
+    },
+    {
+      "name": "प्रीतम",
+      "split": "val",
+      "tokens": 2,
+      "unk": 0,
+      "corpus_freq": 32
+    },
+    {
+      "name": "संतोष",
+      "split": "val",
+      "tokens": 1,
+      "unk": 0,
+      "corpus_freq": 59
+    },
+    {
+      "name": "अरविंद",
+      "split": "val",
+      "tokens": 1,
+      "unk": 0,
+      "corpus_freq": 97
+    },
+    {
+      "name": "गजेंद्र",
+      "split": "val",
+      "tokens": 2,
+      "unk": 0,
+      "corpus_freq": 9
+    },
+    {
+      "name": "धर्मेंद्र",
+      "split": "val",
+      "tokens": 1,
+      "unk": 0,
+      "corpus_freq": 19
+    },
+    {
+      "name": "शैलेश",
+      "split": "val",
+      "tokens": 2,
+      "unk": 0,
+      "corpus_freq": 6
+    },
+    {
+      "name": "कुलदीप",
+      "split": "val",
+      "tokens": 1,
+      "unk": 0,
+      "corpus_freq": 11
+    },
+    {
+      "name": "प्रदीप",
+      "split": "val",
+      "tokens": 1,
+      "unk": 0,
+      "corpus_freq": 42
+    },
+    {
+      "name": "बलदेव",
+      "split": "val",
+      "tokens": 2,
+      "unk": 0,
+      "corpus_freq": 20
+    },
+    {
+      "name": "हरदीप",
+      "split": "val",
+      "tokens": 2,
+      "unk": 0,
+      "corpus_freq": 2
+    },
+    {
+      "name": "जसवंत",
+      "split": "val",
+      "tokens": 2,
+      "unk": 0,
+      "corpus_freq": 20
+    },
+    {
+      "name": "बलवंत",
+      "split": "val",
+      "tokens": 2,
+      "unk": 0,
+      "corpus_freq": 8
+    },
+    {
+      "name": "हेमंत",
+      "split": "val",
+      "tokens": 1,
+      "unk": 0,
+      "corpus_freq": 18
+    },
+    {
+      "name": "त्रिलोक",
+      "split": "test",
+      "tokens": 3,
+      "unk": 0,
+      "corpus_freq": 7
+    },
+    {
+      "name": "भूपेंद्र",
+      "split": "test",
+      "tokens": 1,
+      "unk": 0,
+      "corpus_freq": 5
+    },
+    {
+      "name": "रघुवीर",
+      "split": "test",
+      "tokens": 2,
+      "unk": 0,
+      "corpus_freq": 18
+    },
+    {
+      "name": "माधव",
+      "split": "test",
+      "tokens": 1,
+      "unk": 0,
+      "corpus_freq": 60
+    },
+    {
+      "name": "केशव",
+      "split": "test",
+      "tokens": 1,
+      "unk": 0,
+      "corpus_freq": 35
+    },
+    {
+      "name": "वासुदेव",
+      "split": "test",
+      "tokens": 2,
+      "unk": 0,
+      "corpus_freq": 47
+    },
+    {
+      "name": "नंदन",
+      "split": "test",
+      "tokens": 2,
+      "unk": 0,
+      "corpus_freq": 10
+    },
+    {
+      "name": "चंदन",
+      "split": "test",
+      "tokens": 1,
+      "unk": 0,
+      "corpus_freq": 34
+    },
+    {
+      "name": "स्वप्निल",
+      "split": "test",
+      "tokens": 2,
+      "unk": 0,
+      "corpus_freq": 8
+    },
+    {
+      "name": "कौशल",
+      "split": "test",
+      "tokens": 1,
+      "unk": 0,
+      "corpus_freq": 264
+    },
+    {
+      "name": "पीयूष",
+      "split": "test",
+      "tokens": 1,
+      "unk": 0,
+      "corpus_freq": 20
+    },
+    {
+      "name": "तनुज",
+      "split": "test",
+      "tokens": 2,
+      "unk": 0,
+      "corpus_freq": 2
+    },
+    {
+      "name": "सार्थक",
+      "split": "test",
+      "tokens": 1,
+      "unk": 0,
+      "corpus_freq": 62
+    },
+    {
+      "name": "वैभव",
+      "split": "test",
+      "tokens": 1,
+      "unk": 0,
+      "corpus_freq": 44
+    },
+    {
+      "name": "यशवंत",
+      "split": "test",
+      "tokens": 2,
+      "unk": 0,
+      "corpus_freq": 2
+    },
+    {
+      "name": "देवराज",
+      "split": "test",
+      "tokens": 2,
+      "unk": 0,
+      "corpus_freq": 19
+    },
+    {
+      "name": "इंद्रजीत",
+      "split": "test",
+      "tokens": 2,
+      "unk": 0,
+      "corpus_freq": 5
+    },
+    {
+      "name": "अभिजीत",
+      "split": "test",
+      "tokens": 2,
+      "unk": 0,
+      "corpus_freq": 35
+    },
+    {
+      "name": "सुरजीत",
+      "split": "test",
+      "tokens": 2,
+      "unk": 0,
+      "corpus_freq": 4
+    },
+    {
+      "name": "मनजीत",
+      "split": "test",
+      "tokens": 2,
+      "unk": 0,
+      "corpus_freq": 3
+    },
+    {
+      "name": "हरजीत",
+      "split": "test",
+      "tokens": 2,
+      "unk": 0,
+      "corpus_freq": 1
+    },
+    {
+      "name": "गुरमीत",
+      "split": "test",
+      "tokens": 2,
+      "unk": 0,
+      "corpus_freq": 10
+    },
+    {
+      "name": "रंजीत",
+      "split": "test",
+      "tokens": 1,
+      "unk": 0,
+      "corpus_freq": 37
+    },
+    {
+      "name": "परमजीत",
+      "split": "test",
+      "tokens": 2,
+      "unk": 0,
+      "corpus_freq": 4
+    },
+    {
+      "name": "अमरजीत",
+      "split": "test",
+      "tokens": 2,
+      "unk": 0,
+      "corpus_freq": 16
+    }
+  ]
+}

@@ -1,0 +1,119 @@
+# --- AI assistant working memory (NOT deliverables, never commit) ---
+CLAUDE.md
+PLAN.md
+plan.md
+.claude/
+
+# --- Raw spec / reference PDFs (local reference only) ---
+# NOTE: only this folder is ignored. Report PDFs under report/ ARE committable.
+docs/spec/
+
+# --- Large artifacts: these live in Google Drive, links go in README.md ---
+# Corpora and tokenized dumps (per-language artifact dirs, e.g. hindi/corpus/)
+**/corpus/
+**/corpora/
+**/data/
+data/
+checkpoints/
+**/checkpoints/
+
+# Model / optimizer binaries
+*.pt
+*.pth
+*.ckpt
+*.bin
+*.safetensors
+
+# Bulk data dumps
+*.arrow
+*.parquet
+*.jsonl.gz
+*.txt.gz
+*.tar.gz
+*.zip
+
+# --- Split definitions: GRADED DELIVERABLE, must be committed ---
+# The spec's submission checklist names "train/val/test split definitions".
+# The *_ids.txt manifests ARE that definition: line numbers into the cleaned
+# corpus, which reproduce the exact split without shipping multi-GB text to
+# git. Negated out of the blanket **/corpus/ rule above.
+!**/corpus/splits/
+!**/corpus/splits/*_ids.txt
+!**/corpus/splits/train_leaked_lines.txt
+
+# --- Tokenized-shard metadata: evidence, not bulk data ---
+# The .bin shards are large and live on Drive, but meta.json records which
+# tokenizer produced them, the dtype, special-token ids, per-shard counts and
+# the verification results. That is provenance the report cites, so it is
+# negated out of the blanket **/data/ rule above. The shards themselves stay
+# ignored.
+!**/data/tokenized/
+!**/data/tokenized/meta.json
+
+# --- SentencePiece tokenizer artifacts ---
+# GRADED DELIVERABLE: tokenizer .model/.vocab files must be committed.
+# Ignore them by default anywhere else, but always keep them under a tokenizer/ dir.
+*.model
+*.vocab
+!**/tokenizer/*.model
+!**/tokenizer/*.vocab
+!**/tokenizer/**/*.model
+!**/tokenizer/**/*.vocab
+
+# --- Python ---
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+.ipynb_checkpoints/
+*.egg-info/
+.pytest_cache/
+
+# --- Logs / run outputs ---
+logs/
+runs/
+wandb/
+*.log
+
+# --- OS / editor ---
+.DS_Store
+.vscode/
+.idea/
+
+# Kaggle run outputs (checkpoints + logs pulled back from kernels)
+kaggle_out/
+kaggle_eval_out*/
+# Fetched Kaggle kernel outputs — these duplicate what is copied into
+# report/phase2/, so committing them would ship the same results twice.
+kaggle_tuned_out/
+kaggle_tuned_eval/
+kaggle_sweep_out/
+kaggle_bench_out/
+# Raw fetch dir for the bonus ablation kernel. Its report/ contents are copied
+# into report/phase2/nepali_nope*/ and committed from there; this is the
+# unprocessed duplicate plus 550 MB of checkpoints.
+# Kaggle fetch directories. GLOB, not one literal line per run: the literal
+# form has now silently let data through twice (kaggle_nope_out, then six
+# Phase-3 kaggle_*_out dirs), because a new run always needs a new entry that
+# is easy to forget. Everything under these is either a duplicate of what is
+# copied into report/, or a checkpoint destined for Drive.
+/kaggle_*out*/
+/kaggle_tuned_eval/
+kaggle_nope_out/
+
+# Generated reasoning datasets (~130 MB across both trees). NOT committed:
+# they are fully reproducible from the committed generator plus its seed --
+# `python <lang>/reasoning/generate.py --split train --n 60000` -- and
+# tests/test_reasoning_data.py asserts that regeneration is deterministic.
+# The spec asks for the generation SCRIPTS to be released, which they are.
+**/reasoning_data/
+
+# Background job logs (setsid/nohup); never a deliverable.
+run_logs/
+
+# LaTeX source — PDF is the deliverable
+report/lma_report.tex
+report/*.aux
+report/*.log
+report/*.out

@@ -1,0 +1,35 @@
+# Phase-2 BONUS ABLATION — Model L (nepali) with NO positional embeddings.
+#
+# Identical to `model.yaml` in every field except `use_positional_embeddings`.
+# Kept as a separate file rather than a CLI flag so the ablated architecture is
+# a versioned artifact and is logged verbatim into every checkpoint.
+#
+# 23,874,048 trainable parameters = 24,070,656 - (512 x 384) = 196,608 fewer.
+# The table is not zeroed or frozen: it is never constructed, so those
+# parameters genuinely leave the model.
+
+lang_code: ne
+vocab_size: 16000
+
+d_model: 384
+n_layers: 10
+n_heads: 6
+d_ff: 1536
+
+# Still meaningful without a positional table: the causal mask buffer is
+# allocated at this length, so it remains a hard context bound.
+max_seq_len: 512
+
+emb_dropout: 0.1
+attn_dropout: 0.1
+resid_dropout: 0.1
+
+tie_weights: true
+
+# THE ABLATION. Self-attention is a set operation, so removing the explicit
+# position signal should in principle make the model order-blind. It does not
+# fully, because a CAUSAL decoder leaks position through its own mask: token 0
+# attends over 1 position, token 50 over 51, so "how much context is visible"
+# is itself a positional cue. What this run measures is how much of the gap
+# that residual cue can close.
+use_positional_embeddings: false

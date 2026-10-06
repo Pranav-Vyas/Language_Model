@@ -1,0 +1,59 @@
+{
+  "config": {
+    "seq_len": 24,
+    "trials": 150,
+    "seed": 1337,
+    "uniform": false,
+    "out": "/home/anurag/Documents/LMA/individual-project-Anurag-1205/report/phase3/induction_probe.json"
+  },
+  "results": [
+    {
+      "label": "hindi-tuned",
+      "tree": "hindi",
+      "recipe": "3e-3 / dropout 0.0",
+      "checkpoint": "kaggle_tuned_out/link1/checkpoints/hindi/step_8732.pt",
+      "step": 8732,
+      "val_loss": 3.3784764647483825,
+      "sampling": "corpus-frequency",
+      "accuracy": 0.6802898550724638,
+      "mrr": 0.7430049597884807,
+      "positions_scored": 3450
+    },
+    {
+      "label": "hindi-baseline",
+      "tree": "hindi",
+      "recipe": "6e-4 / dropout 0.1",
+      "checkpoint": "kaggle_out2/link1/checkpoints/hindi/step_8732.pt",
+      "step": 8732,
+      "val_loss": 3.554605495929718,
+      "sampling": "corpus-frequency",
+      "accuracy": 0.7492753623188406,
+      "mrr": 0.794333033780028,
+      "positions_scored": 3450
+    },
+    {
+      "label": "nepali",
+      "tree": "nepali",
+      "recipe": "6e-4 / dropout 0.1",
+      "checkpoint": "kaggle_out2/link1/checkpoints/nepali/step_13547.pt",
+      "step": 13547,
+      "val_loss": 3.7040456175804137,
+      "sampling": "corpus-frequency",
+      "accuracy": 0.3640579710144928,
+      "mrr": 0.4509684449323697,
+      "positions_scored": 3450
+    },
+    {
+      "label": "nepali-matched",
+      "tree": "nepali",
+      "recipe": "6e-4 / dropout 0.1",
+      "checkpoint": "kaggle_out2/link1/checkpoints/nepali/step_8732.pt",
+      "step": 8732,
+      "val_loss": 3.7889722526073455,
+      "sampling": "corpus-frequency",
+      "accuracy": 0.3101449275362319,
+      "mrr": 0.3920357240531806,
+      "positions_scored": 3450
+    }
+  ]
+}

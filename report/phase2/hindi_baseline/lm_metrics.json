@@ -1,0 +1,40 @@
+{
+  "lang_code": "hi",
+  "checkpoint": {
+    "step": 8732,
+    "val_loss": 3.554605495929718,
+    "lang_code": "hi",
+    "path": "/kaggle/input/datasets/anuragkaushal183/lma-ckpt-final/hindi/step_8732.pt"
+  },
+  "note": "PPL is per-token and NOT comparable across languages; BPB is the cross-language comparator.",
+  "results": [
+    {
+      "split": "val",
+      "lang_code": "hi",
+      "checkpoint": "step_8732.pt",
+      "tokens_scored": 5799424,
+      "windows": 11327,
+      "total_nats": 20631153.69921875,
+      "mean_nats_per_token": 3.5574487568452917,
+      "perplexity": 35.07360161767744,
+      "bytes_utf8": 57346128,
+      "bits_per_byte": 0.5190317841455814,
+      "tokens_not_scored": 162,
+      "ctx": 512
+    },
+    {
+      "split": "test",
+      "lang_code": "hi",
+      "checkpoint": "step_8732.pt",
+      "tokens_scored": 5849088,
+      "windows": 11424,
+      "total_nats": 20890724.859375,
+      "mean_nats_per_token": 3.57162088506362,
+      "perplexity": 35.57420814800798,
+      "bytes_utf8": 57904711,
+      "bits_per_byte": 0.5204921090996568,
+      "tokens_not_scored": 71,
+      "ctx": 512
+    }
+  ]
+}

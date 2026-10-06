@@ -1,0 +1,20 @@
+{
+  "id": "anuragkaushal183/lma-phase2-eval",
+  "title": "LMA phase2 eval",
+  "code_file": "run_eval_kernel.py",
+  "language": "python",
+  "kernel_type": "script",
+  "is_private": true,
+  "enable_gpu": true,
+  "enable_tpu": false,
+  "enable_internet": true,
+  "machine_shape": "NvidiaTeslaT4",
+  "dataset_sources": [
+    "anuragkaushal183/lma-code",
+    "anuragkaushal183/lma-tokens",
+    "anuragkaushal183/lma-ckpt-tuned"
+  ],
+  "competition_sources": [],
+  "kernel_sources": [],
+  "model_sources": []
+}

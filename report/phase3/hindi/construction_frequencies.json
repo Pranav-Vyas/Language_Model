@@ -1,0 +1,182 @@
+{
+  "lang_code": "hi",
+  "split": "train",
+  "docs_scanned": 40000,
+  "adjectives": [
+    {
+      "masculine": "बड़ा",
+      "feminine": "बड़ी",
+      "gloss": "big",
+      "polarity": 1,
+      "comparative_se": 353,
+      "superlative_sabse": 4516,
+      "ordinal_second": 299,
+      "bare": 13626
+    },
+    {
+      "masculine": "छोटा",
+      "feminine": "छोटी",
+      "gloss": "short/small",
+      "polarity": -1,
+      "comparative_se": 140,
+      "superlative_sabse": 306,
+      "ordinal_second": 8,
+      "bare": 6058
+    },
+    {
+      "masculine": "नया",
+      "feminine": "नई",
+      "gloss": "new",
+      "polarity": -1,
+      "comparative_se": 105,
+      "superlative_sabse": 27,
+      "ordinal_second": 0,
+      "bare": 7202
+    },
+    {
+      "masculine": "भारी",
+      "feminine": "भारी",
+      "gloss": "heavy",
+      "polarity": 1,
+      "comparative_se": 101,
+      "superlative_sabse": 31,
+      "ordinal_second": 2,
+      "bare": 2509
+    },
+    {
+      "masculine": "गहरा",
+      "feminine": "गहरी",
+      "gloss": "deep",
+      "polarity": 1,
+      "comparative_se": 74,
+      "superlative_sabse": 47,
+      "ordinal_second": 2,
+      "bare": 1609
+    },
+    {
+      "masculine": "तेज",
+      "feminine": "तेज",
+      "gloss": "fast",
+      "polarity": 1,
+      "comparative_se": 51,
+      "superlative_sabse": 143,
+      "ordinal_second": 4,
+      "bare": 1603
+    },
+    {
+      "masculine": "पुराना",
+      "feminine": "पुरानी",
+      "gloss": "old",
+      "polarity": 1,
+      "comparative_se": 48,
+      "superlative_sabse": 710,
+      "ordinal_second": 24,
+      "bare": 3100
+    },
+    {
+      "masculine": "लंबा",
+      "feminine": "लंबी",
+      "gloss": "tall",
+      "polarity": 1,
+      "comparative_se": 40,
+      "superlative_sabse": 199,
+      "ordinal_second": 13,
+      "bare": 2592
+    },
+    {
+      "masculine": "हल्का",
+      "feminine": "हल्की",
+      "gloss": "light",
+      "polarity": -1,
+      "comparative_se": 31,
+      "superlative_sabse": 6,
+      "ordinal_second": 1,
+      "bare": 678
+    },
+    {
+      "masculine": "ऊंचा",
+      "feminine": "ऊंची",
+      "gloss": "high",
+      "polarity": 1,
+      "comparative_se": 21,
+      "superlative_sabse": 235,
+      "ordinal_second": 11,
+      "bare": 914
+    },
+    {
+      "masculine": "गरीब",
+      "feminine": "गरीब",
+      "gloss": "poor",
+      "polarity": -1,
+      "comparative_se": 19,
+      "superlative_sabse": 25,
+      "ordinal_second": 0,
+      "bare": 707
+    },
+    {
+      "masculine": "सस्ता",
+      "feminine": "सस्ती",
+      "gloss": "cheap",
+      "polarity": -1,
+      "comparative_se": 15,
+      "superlative_sabse": 27,
+      "ordinal_second": 0,
+      "bare": 344
+    },
+    {
+      "masculine": "अमीर",
+      "feminine": "अमीर",
+      "gloss": "rich",
+      "polarity": 1,
+      "comparative_se": 13,
+      "superlative_sabse": 90,
+      "ordinal_second": 1,
+      "bare": 968
+    },
+    {
+      "masculine": "पतला",
+      "feminine": "पतली",
+      "gloss": "thin",
+      "polarity": -1,
+      "comparative_se": 12,
+      "superlative_sabse": 7,
+      "ordinal_second": 0,
+      "bare": 585
+    },
+    {
+      "masculine": "महंगा",
+      "feminine": "महंगी",
+      "gloss": "expensive",
+      "polarity": 1,
+      "comparative_se": 10,
+      "superlative_sabse": 82,
+      "ordinal_second": 2,
+      "bare": 325
+    },
+    {
+      "masculine": "मोटा",
+      "feminine": "मोटी",
+      "gloss": "thick/fat",
+      "polarity": 1,
+      "comparative_se": 7,
+      "superlative_sabse": 3,
+      "ordinal_second": 0,
+      "bare": 546
+    }
+  ],
+  "function_words": {
+    "कौन": 991,
+    "कौन सा": 118,
+    "है": 253797,
+    "हैं": 86476,
+    "उत्तर": 11881,
+    "सबसे": 25456,
+    "से": 324415,
+    "की तुलना में": 3155,
+    "ज्यादा": 3360,
+    "अधिक": 25692,
+    "कम": 17876,
+    "दूसरा": 4268,
+    "तीसरा": 1462
+  }
+}

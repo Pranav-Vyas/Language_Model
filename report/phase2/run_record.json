@@ -1,0 +1,139 @@
+{
+  "phase": 2,
+  "status": "Phase 2 complete: architecture, pretraining and evaluation (T2.1-T2.16)",
+  "architecture": {
+    "type": "decoder-only transformer, built from nn.Linear/Embedding/LayerNorm/Dropout only",
+    "d_model": 384,
+    "n_layers": 10,
+    "n_heads": 6,
+    "d_k": 64,
+    "d_ff": 1536,
+    "max_seq_len": 512,
+    "positional": "learned absolute",
+    "norm": "pre-norm",
+    "activation": "GELU",
+    "tie_weights": true,
+    "trainable_params": 24070656,
+    "param_breakdown": {
+      "token_embedding": 6144000,
+      "position_embedding": 196608,
+      "per_block": 1772928,
+      "all_blocks": 17729280,
+      "final_layernorm": 768,
+      "lm_head": 0,
+      "tied_saving": 6144000
+    }
+  },
+  "training": {
+    "optimizer": "AdamW",
+    "betas": [
+      0.9,
+      0.95
+    ],
+    "weight_decay": 0.1,
+    "weight_decay_applies_to": "2D matmul weights only",
+    "peak_lr": 0.0006,
+    "min_lr_ratio": 0.1,
+    "warmup_steps": 500,
+    "schedule": "linear warmup -> cosine decay",
+    "grad_clip": 1.0,
+    "precision": "fp16 autocast + GradScaler for Model H (3.11x faster than bf16 on T4); Model L used bfloat16",
+    "micro_batch_size": 8,
+    "grad_accum_steps": 16,
+    "tokens_per_step": 65536,
+    "seed": 1337,
+    "hardware": "Kaggle 2x Tesla T4 (sm_75), one language per GPU, parallel"
+  },
+  "runs": {
+    "hindi": {
+      "lang_code": "hi",
+      "vocab_size": 16000,
+      "train_tokens": 572264559,
+      "steps": 8732,
+      "epochs": 1.0,
+      "final_val_loss": 3.3803,
+      "final_val_ppl": 29.38,
+      "s_per_step": 5.847,
+      "checkpoint": "hindi/checkpoints/step_8732.pt",
+      "eval_full_split": {
+        "val_loss": 3.3803,
+        "val_ppl": 29.38,
+        "val_bpb": 0.4932,
+        "test_loss": 3.3949,
+        "test_ppl": 29.81,
+        "test_bpb": 0.4947
+      },
+      "training": {
+        "dropout": 0.0,
+        "peak_lr": 0.003,
+        "dtype": "float16",
+        "steps": 8732,
+        "s_per_step": 1.718,
+        "wall_clock_h": 4.16,
+        "fp16_skipped_steps": 0,
+        "selected_by": "sweep over dropout x peak_lr, see report/phase2/README.md 4"
+      }
+    },
+    "nepali": {
+      "lang_code": "ne",
+      "vocab_size": 16000,
+      "train_tokens": 887852764,
+      "steps": 13547,
+      "epochs": 1.0,
+      "final_val_loss": 3.704,
+      "final_val_ppl": 40.6,
+      "s_per_step": 5.999,
+      "checkpoint": "nepali/checkpoints/step_13547.pt",
+      "matched_token_milestone": {
+        "step": 8732,
+        "tokens_seen": 572260352,
+        "val_loss": 3.789,
+        "val_ppl": 44.2,
+        "purpose": "same token budget as Hindi's full training set",
+        "checkpoint": "nepali/checkpoints/step_8732.pt",
+        "eval_full_split": {
+          "val_loss": 3.8013,
+          "val_bpb": 0.4448,
+          "test_loss": 3.7915,
+          "test_bpb": 0.4413
+        }
+      },
+      "eval_full_split": {
+        "val_loss": 3.7161,
+        "val_ppl": 41.1,
+        "val_bpb": 0.4348,
+        "test_loss": 3.7062,
+        "test_ppl": 40.7,
+        "test_bpb": 0.4314,
+        "note": "authoritative; the final_val_loss above was a 40-batch sample taken during training"
+      }
+    },
+    "hindi_baseline": {
+      "note": "pre-tuning run; dropout 0.1, peak_lr 6e-4, bfloat16, 5.847 s/step, 14.4h",
+      "eval_full_split": {
+        "val_loss": 3.5574,
+        "val_ppl": 35.07,
+        "val_bpb": 0.519,
+        "test_loss": 3.5716,
+        "test_ppl": 35.57,
+        "test_bpb": 0.5205
+      }
+    }
+  },
+  "wall_clock": {
+    "link1_s": 41586,
+    "link2_s": 42331,
+    "total_h": 23.31,
+    "links": 2,
+    "reason": "Kaggle batch kernels are capped at 12h"
+  },
+  "pending": [],
+  "completed": [
+    "T2.1-T2.11 tokenization, architecture, trainer, checkpointing, pretraining",
+    "T2.12 LM metrics (loss/PPL/BPB) on full val+test",
+    "T2.13 generation + BLEU/chrF/ROUGE-L + diversity/repetition + qualitative notes",
+    "T2.14 attention toolkit (entropy, distance, content-dependence, heatmaps)",
+    "T2.15 loss curves, all figures, side-by-side H/L comparison tables",
+    "T2.16 Phase-2 report + resource-tier write-up; independence gate 5/5"
+  ]
+}

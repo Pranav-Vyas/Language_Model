@@ -1,0 +1,202 @@
+{
+  "lang_code": "ne",
+  "split": "train",
+  "docs_scanned": 40000,
+  "adjectives": [
+    {
+      "masculine": "ठूलो",
+      "feminine": "ठूली",
+      "gloss": "big",
+      "polarity": 1,
+      "comparative_se": 179,
+      "superlative_sabse": 1656,
+      "ordinal_second": 145,
+      "bare": 7693
+    },
+    {
+      "masculine": "लामो",
+      "feminine": "लामी",
+      "gloss": "long",
+      "polarity": 1,
+      "comparative_se": 50,
+      "superlative_sabse": 272,
+      "ordinal_second": 7,
+      "bare": 4472
+    },
+    {
+      "masculine": "पुरानो",
+      "feminine": "पुरानी",
+      "gloss": "old",
+      "polarity": 1,
+      "comparative_se": 39,
+      "superlative_sabse": 410,
+      "ordinal_second": 11,
+      "bare": 2300
+    },
+    {
+      "masculine": "सानो",
+      "feminine": "सानी",
+      "gloss": "small",
+      "polarity": -1,
+      "comparative_se": 36,
+      "superlative_sabse": 162,
+      "ordinal_second": 4,
+      "bare": 2617
+    },
+    {
+      "masculine": "छिटो",
+      "feminine": "छिटी",
+      "gloss": "fast",
+      "polarity": 1,
+      "comparative_se": 28,
+      "superlative_sabse": 50,
+      "ordinal_second": 0,
+      "bare": 726
+    },
+    {
+      "masculine": "अग्लो",
+      "feminine": "अग्ली",
+      "gloss": "tall",
+      "polarity": 1,
+      "comparative_se": 27,
+      "superlative_sabse": 169,
+      "ordinal_second": 9,
+      "bare": 923
+    },
+    {
+      "masculine": "ढिलो",
+      "feminine": "ढिली",
+      "gloss": "slow",
+      "polarity": -1,
+      "comparative_se": 8,
+      "superlative_sabse": 0,
+      "ordinal_second": 0,
+      "bare": 330
+    },
+    {
+      "masculine": "नयाँ",
+      "feminine": "नयाँ",
+      "gloss": "new",
+      "polarity": -1,
+      "comparative_se": 8,
+      "superlative_sabse": 13,
+      "ordinal_second": 0,
+      "bare": 8682
+    },
+    {
+      "masculine": "होचो",
+      "feminine": "होची",
+      "gloss": "short",
+      "polarity": -1,
+      "comparative_se": 6,
+      "superlative_sabse": 11,
+      "ordinal_second": 0,
+      "bare": 99
+    },
+    {
+      "masculine": "सस्तो",
+      "feminine": "सस्ती",
+      "gloss": "cheap",
+      "polarity": -1,
+      "comparative_se": 6,
+      "superlative_sabse": 10,
+      "ordinal_second": 1,
+      "bare": 267
+    },
+    {
+      "masculine": "धनी",
+      "feminine": "धनी",
+      "gloss": "rich",
+      "polarity": 1,
+      "comparative_se": 4,
+      "superlative_sabse": 69,
+      "ordinal_second": 6,
+      "bare": 574
+    },
+    {
+      "masculine": "भारी",
+      "feminine": "भारी",
+      "gloss": "heavy",
+      "polarity": 1,
+      "comparative_se": 2,
+      "superlative_sabse": 7,
+      "ordinal_second": 0,
+      "bare": 896
+    },
+    {
+      "masculine": "महँगो",
+      "feminine": "महँगी",
+      "gloss": "expensive",
+      "polarity": 1,
+      "comparative_se": 2,
+      "superlative_sabse": 32,
+      "ordinal_second": 1,
+      "bare": 186
+    },
+    {
+      "masculine": "बाक्लो",
+      "feminine": "बाक्ली",
+      "gloss": "thick",
+      "polarity": 1,
+      "comparative_se": 2,
+      "superlative_sabse": 0,
+      "ordinal_second": 0,
+      "bare": 375
+    },
+    {
+      "masculine": "पातलो",
+      "feminine": "पातली",
+      "gloss": "thin",
+      "polarity": -1,
+      "comparative_se": 2,
+      "superlative_sabse": 2,
+      "ordinal_second": 0,
+      "bare": 299
+    },
+    {
+      "masculine": "चौडा",
+      "feminine": "चौडी",
+      "gloss": "wide",
+      "polarity": 1,
+      "comparative_se": 2,
+      "superlative_sabse": 4,
+      "ordinal_second": 0,
+      "bare": 242
+    },
+    {
+      "masculine": "हलुका",
+      "feminine": "हलुकी",
+      "gloss": "light",
+      "polarity": -1,
+      "comparative_se": 1,
+      "superlative_sabse": 0,
+      "ordinal_second": 0,
+      "bare": 80
+    },
+    {
+      "masculine": "गरिब",
+      "feminine": "गरिब",
+      "gloss": "poor",
+      "polarity": -1,
+      "comparative_se": 0,
+      "superlative_sabse": 11,
+      "ordinal_second": 0,
+      "bare": 208
+    }
+  ],
+  "function_words": {
+    "को": 31870,
+    "कुन": 1105,
+    "हो": 40152,
+    "छ": 96729,
+    "छन्": 38369,
+    "उत्तर": 5339,
+    "सबैभन्दा": 10108,
+    "भन्दा": 9933,
+    "बढी": 9391,
+    "कम": 5409,
+    "दोस्रो": 6080,
+    "तेस्रो": 3104,
+    "को तुलनामा": 55
+  }
+}
