@@ -1,74 +1,84 @@
-# LMA Individual Project — Monsoon 2026
+# Decoder-Only Transformer Language Models for Hindi and Nepali
 
-Two **completely independent** decoder-only Transformer language models built from scratch
-in PyTorch, for two Indian languages at different resource tiers.
+Two **completely independent** decoder-only Transformer language models built from scratch in PyTorch — one for Hindi and one for Nepali — spanning the full pipeline from raw corpus collection through BPE tokenisation, pretraining, and supervised reasoning finetuning, with a rigorous cross-language evaluation framework.
 
 | | Model H | Model L |
 |---|---|---|
 | Language | **Hindi** (`hi`) | **Nepali** (`ne`) |
 | Script | Devanagari | Devanagari |
-| Tier | higher-resource | lower-resource (spec's allowed list) |
+| Resource tier | Higher-resource | Lower-resource |
 | Directory | `hindi/` | `nepali/` |
 
-The two models share **no data, tokenizer, vocabulary, or weights**. Enforced structurally,
-not by care: each language tree holds its own copy of the code and never imports from its
-sibling, and `scripts/check_independence.py` fails the build if that is ever violated.
+The two models share **no data, tokenizer, vocabulary, or weights**. This is enforced structurally, not by convention: each language tree holds its own copy of the code and never imports from its sibling, and `scripts/check_independence.py` fails the build if that invariant is ever violated.
 
 ---
 
-## Results at a glance
+## Results at a Glance
 
 | | Model H (Hindi) | Model L (Nepali) |
 |---|---|---|
-| corpus tokens | 582,711,232 | 903,937,802 |
-| parameters | 24,070,656 | 24,070,656 |
-| test perplexity | 29.81 | 40.70 |
-| **test bits-per-byte** (cross-language comparator) | 0.4947 | **0.4314** |
-| **reasoning exact match** (chance 0.398) | **0.954** | 0.835 |
+| Corpus tokens | 582,711,232 | 903,937,802 |
+| Parameters | 24,070,656 | 24,070,656 |
+| Test perplexity | 29.81 | 40.70 |
+| **Test bits-per-byte** (cross-language comparator) | 0.4947 | **0.4314** |
+| **Reasoning exact match** (chance 0.398) | **0.954** | 0.835 |
 | 4-hop generalisation (chance 0.200) | 0.023 | 0.140 |
 
-The low-resource model is the **better language model** by the portable metric and the
-**weaker reasoner** — the two come apart. Full argument in
-[`report/phase3/README.md`](report/phase3/README.md) §9.
+The low-resource model is the **better language model** by the portable BPB metric, yet the **weaker reasoner** — the two measures come apart. Full argument in [`report/phase3/README.md`](report/phase3/README.md) §9.
 
 ---
 
-## Phase status
+## Project Overview
 
-| Phase | Due | Marks | Status |
-|---|---|---|---|
-| 1 — Data Collection & Tokenizer | 19 Aug 2026 | 25 | **complete** — see [`report/phase1/README.md`](report/phase1/README.md) |
-| 2 — Model, Pretraining, Evaluation | 5 Sep 2026 | 40 | **complete** — see [`report/phase2/README.md`](report/phase2/README.md) |
-| 3 — Reasoning Finetuning, Attention, Final Report | 16 Sep 2026 | 35 | **complete** — see [`report/phase3/README.md`](report/phase3/README.md) |
+The project is structured across three sequential phases:
 
-### Phase 1 headline results
+| Phase | Focus | Status |
+|---|---|---|
+| 1 — Data Collection & Tokenization | Corpus scraping, cleaning, deduplication, BPE training | **Complete** — [`report/phase1/README.md`](report/phase1/README.md) |
+| 2 — Model, Pretraining & Evaluation | Architecture, training on Kaggle T4 GPUs, PPL/BPB evaluation, attention analysis | **Complete** — [`report/phase2/README.md`](report/phase2/README.md) |
+| 3 — Reasoning Finetuning & Attention | Synthetic reasoning dataset, SFT, evaluation, corrections | **Complete** — [`report/phase3/README.md`](report/phase3/README.md) |
+
+---
+
+## Phase 1 — Data Collection & Tokenization
+
+Corpora were assembled from multiple sources: Wikipedia, Wikisource, news archives, and the publicly available Sangraha (`ai4bharat/sangraha`) HuggingFace dataset. Scrapers are polite — `robots.txt` is honoured, requests are rate-limited, and all runs are resumable. Split assignment is a hash of each document's own content, so the same document always lands in the same split regardless of corpus extension order.
 
 | | Hindi | Nepali |
 |---|---|---|
-| documents | 1,202,072 | 2,180,424 |
-| **tokens** (own trained tokenizer) | **582,711,232** | **903,937,802** |
-| manual share of corpus | 19.29% | 22.40% |
-| vocabulary | 16,000 | 16,000 |
-| fertility (tokens/word) | 1.386 | 1.360 |
-| chars per token | 3.892 | 4.644 |
+| Documents | 1,202,072 | 2,180,424 |
+| **Tokens** (own trained tokenizer) | **582,711,232** | **903,937,802** |
+| Manual share of corpus | 19.29% | 22.40% |
+| Vocabulary size | 16,000 | 16,000 |
+| Fertility (tokens/word) | 1.386 | 1.360 |
+| Chars per token | 3.892 | 4.644 |
 | UNK rate | 0.000000 | 0.000000 |
 
-Both corpora exceed the ~500M training-token target. The Phase 1 report explains Hindi's
-19.29% in full: manual sources were collected to exhaustion, and the 82.7M-token surplus
-above target is entirely downloaded-tier cleaning buffer. Downloaded data was deliberately
-**not** trimmed to force the headline over 20%.
+Both corpora exceed 500M training tokens. Tokenizers are BPE models trained with SentencePiece; a sweep over vocabulary sizes of 8k, 16k, 32k, and 48k was run for each language, with 16k selected for both. Every committed tokenizer file (`.model`, `.vocab`) is the exact model used in training. Full details: [`report/phase1/README.md`](report/phase1/README.md).
+
 
 ---
 
+## Phase 2 — Model Architecture & Pretraining
 
-### Phase 2 headline results (pretraining)
+### Architecture
 
-Both models are **24,070,656 trainable parameters** (d_model 384, 10 layers, 6 heads,
-context 512, weight-tied LM head) and were each pretrained for **one full epoch** on
-their own corpus on Kaggle T4 GPUs. Model H's training hyperparameters
-(dropout 0.0, peak LR 3e-3, fp16) were selected by a sweep — see
-[`report/phase2/README.md`](report/phase2/README.md) §4; the pre-tuning run is
-retained in `report/phase2/hindi_baseline/` for comparison.
+Both models use the same decoder-only Transformer architecture:
+
+- **Parameters:** 24,070,656 (analytic count matches `module.parameters()`)
+- **d_model:** 384
+- **Layers:** 10
+- **Attention heads:** 6
+- **Context length:** 512 tokens
+- **Weight-tied LM head** (embedding and output projection share weights)
+
+### Training
+
+Each model was trained for **one full epoch** on its own corpus on Kaggle T4 GPUs. Because a single Kaggle session is capped at 12 hours and one full epoch requires 14.2 h (Hindi) / 23.0 h (Nepali), training is structured as a chain of resumed sessions using `scripts/kaggle/chain.py`. Checkpoints store weights, optimizer moments, step, config, `lang_code`, and RNG state, and resume bit-identically after a `SIGKILL` — proven in `scripts/kill_resume_proof.py`.
+
+Model H's hyperparameters (dropout 0.0, peak LR 3e-3, fp16) were selected by a sweep; the pre-tuning baseline run is retained in `report/phase2/hindi_baseline/` for direct comparison.
+
+### Pretraining Results
 
 | | Model H (Hindi) | Model L (Nepali) |
 |---|---|---|
@@ -125,13 +135,26 @@ the most positional head available goes from content-dependence 0.0047 to 0.0103
 be built.**
 
 
-### Phase 3 headline results (reasoning finetuning)
+---
 
-Each model was finetuned from **its own** pretrained checkpoint with **its own**
-frozen tokenizer, on a synthetic comparative/transitive reasoning set generated
-separately per language (60k train / 6k val / 6k test / 2k out-of-domain).
-Three seeds; mean ± half-range. Full report:
-[`report/phase3/README.md`](report/phase3/README.md).
+## Phase 3 — Reasoning Finetuning & Attention Analysis
+
+### Synthetic Reasoning Dataset
+
+A synthetic comparative/transitive reasoning dataset was generated separately per language (deterministic in split, n, and seed). Each model was finetuned from **its own** pretrained checkpoint with **its own** frozen tokenizer.
+
+| Split | Size |
+|---|---|
+| Train | 60,000 |
+| Validation | 6,000 |
+| Test | 6,000 |
+| Out-of-domain (4-hop) | 2,000 |
+
+The generator is committed and the Drive mirror is bit-identical to what `python <lang>/reasoning/generate.py` produces; `tests/test_reasoning_data.py::test_generation_is_deterministic` asserts this.
+
+### Finetuning Results
+
+Results are means ± half-range over three seeds. The pretrained models score exactly at chance before finetuning, confirming that the reasoning capability is **taught** by SFT rather than merely unlocked. Full report: [`report/phase3/README.md`](report/phase3/README.md).
 
 | | Model H (Hindi) | Model L (Nepali) |
 |---|---|---|
@@ -142,35 +165,17 @@ Three seeds; mean ± half-range. Full report:
 | 4-hop OOD exact match | 0.023 ±0.010 | 0.140 ±0.048 |
 | *chance / last-mention baseline* | *0.398 / 0.384* | *0.398 / 0.388* |
 
-The pretrained models score **exactly at chance** on closed-set scoring and 0.000
-on free generation, so the capability is taught by finetuning rather than merely
-unlocked — that control is what makes the finetuned numbers interpretable.
+### Key Findings
 
-Three findings worth reading the report for:
+- **Model L is not the data-starved model.** It collected *more* tokens than Model H (903.9M vs 582.7M) and achieves *better* bits-per-byte (0.4314 vs 0.4947). The residual 12-point reasoning gap concentrates in transfer to **unseen relations** (0.518 vs 0.848) and tracks a 2× deficit in in-context copying (induction head score: 0.364 vs 0.680).
+- **Both models build the same attention circuit.** At the position that emits the answer, gold-entity attention rises 0.281 → 0.356 (H) and 0.243 → 0.350 (L) against a 0.250 occurrence-weighted baseline — and the strongest head is **L9H4 in both models**, which share no weights, tokenizer, or data.
+- **Length generalisation fails for both, and the failure has a shape.** On 4 hops, 118 of 120 sampled Model H predictions name a *middle* entity of the chain (98.3% vs 60.0% for uniform guessing) when the answer is always an extreme: the model learned "answer with a chain entity, picked by position", not "extend the ordering". Chain-of-thought targets are the only intervention that moved this (~5×, at a 9.5-point in-domain cost).
 
-- **Model L is not the data-starved model.** It collected *more* tokens than
-  Model H (903.9M vs 582.7M) and has *better* bits-per-byte (0.4314 vs 0.4947,
-  the cross-language comparator). The residual 12-point reasoning gap is not a
-  volume story: it concentrates in transfer to **unseen relations** (0.518 vs
-  0.848) and tracks a 2× deficit in in-context copying (induction 0.364 vs 0.680).
-- **Both models build the same attention circuit.** At the position that emits
-  the answer, gold-entity attention rises 0.281 → 0.356 (H) and 0.243 → 0.350 (L)
-  against a 0.250 occurrence-weighted baseline — and the strongest head is
-  **L9H4 in both**, two models sharing no weights, tokenizer or data.
-- **Length generalisation fails for both, and the failure has a shape.** On 4
-  hops, 118 of 120 sampled Model H predictions name a *middle* entity of the
-  chain (98.3% vs 60.0% for uniform guessing) when the answer is always an
-  extreme: it learned "answer with a chain entity, picked by position", not
-  "extend the ordering". Chain-of-thought targets are the only intervention that
-  moved this (~5×, at a 9.5-point in-domain cost).
+> **Note on corrections.** A left-padding bug in batched decoding invalidated an earlier round of accuracies, and the Nepali finetuning learning rate chosen on those numbers was 10× too low. Both are documented in the report (§5.1, §6.2). The superseded results are kept in the repository rather than deleted — a correction is only checkable against what it replaced. Read `V1_BASELINE_NOTE.md` before quoting anything from `v1` files.
 
-> Several Phase-3 numbers are **corrections**. A left-padding bug in batched
-> decoding invalidated an entire earlier round of accuracies, and the Nepali
-> finetuning learning rate chosen on those numbers was 10× too low. Both are
-> documented in the report (§5.1, §6.2) and the superseded results are kept
-> rather than deleted.
+---
 
-## Repository layout
+## Repository Layout
 
 ```
 hindi/ , nepali/          one self-contained tree per language; never import across them
@@ -290,11 +295,10 @@ reshuffle the existing split. Every stage writes its resolved config beside its 
 
 ---
 
-## Google Drive — datasets and artifacts
+## Datasets & Artifacts
 
-**All large artifacts:** https://drive.google.com/drive/folders/1KVpR6f12MbJikW7-BhSbV_-Xy3lIVstb
-
-Permissions are set to *anyone with the link → viewer*, so no access request is needed.
+**All large artifacts (corpora, checkpoints, tokenized shards):**
+[Google Drive](https://drive.google.com/drive/folders/1KVpR6f12MbJikW7-BhSbV_-Xy3lIVstb) — viewer access, no request needed.
 
 ```
 LMA-Individual-Project/
@@ -330,24 +334,15 @@ LMA-Individual-Project/
 
 Every upload was verified by MD5 against the local file, not by filename or size.
 
-**The Phase-3 finetuned checkpoints are the `lr3e-05` runs for both languages.** An
-earlier Nepali set trained at `lr3e-06` is *not* uploaded: it was superseded when the
-learning rate was re-selected (see [`report/phase3/README.md`](report/phase3/README.md)
-§6.2), and its results are kept in-repo as `reasoning_eval_v2_lr3e-06.json`.
+**The finetuned checkpoints are the `lr3e-05` runs for both languages.** An earlier Nepali set trained at `lr3e-06` is *not* uploaded: it was superseded when the learning rate was re-selected (see [`report/phase3/README.md`](report/phase3/README.md) §6.2), and its results are kept in-repo as `reasoning_eval_v2_lr3e-06.json`.
 
-**The reasoning datasets are mirrored, not archived.** They are regenerated exactly by
-`python <lang>/reasoning/generate.py --split train --n 60000` from the committed
-generator and its seed, and `tests/test_reasoning_data.py::test_generation_is_deterministic`
-asserts that regeneration is byte-identical. The Drive copy exists so a grader can read
-the data without running anything.
+**The reasoning datasets are mirrored, not archived.** They are regenerated exactly by `python <lang>/reasoning/generate.py --split train --n 60000` from the committed generator and its seed, and `tests/test_reasoning_data.py::test_generation_is_deterministic` asserts byte-identical reproduction. The Drive copy exists for convenience without running the generator locally.
 
-**Not uploaded, by design:** the Sangraha shards are a public HuggingFace dataset
-(`ai4bharat/sangraha`, configs `verified/hin` and `verified/nep`), reproducible from
-their shard numbers.
+**Not uploaded, by design:** the Sangraha shards are a public HuggingFace dataset (`ai4bharat/sangraha`, configs `verified/hin` and `verified/nep`), reproducible from their shard numbers.
 
 ---
 
-## Reading the results
+## Reading the Results
 
 **Perplexity is not comparable between the two models.** The tokenizers are
 separate and differ in fertility (4.644 vs 3.892 characters per token over the
